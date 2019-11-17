@@ -1,20 +1,36 @@
 function initTest() {
     const startButtonEl = document.querySelector("button");
     const startContainerEl = document.getElementById("start-container");
-    const testContainerEl = document.getElementById("test-container");
+    const test1ContainerEl = document.getElementById("test1-container");
 
     startButtonEl.setAttribute("class", "btn btn-success btn-lg");
 
     function startTest() {
-        // startButtonEl.setAttribute("class", "btn btn-success btn-lg");
         startContainerEl.setAttribute("class", "container d-none");
-        testContainerEl.setAttribute("class", "container");
+        test1ContainerEl.setAttribute("class", "container");
 
+        let userSelection = [];
+        let answers = ["wrong", "correct"]
+
+        const test1ButtonEls = document.querySelectorAll(".test1-button-js");
+        // be sure to eventually clear the array
+        test1ButtonEls.forEach(function(test1ButtonEl) {
+            test1ButtonEl.addEventListener("click", function() {
+                console.log(test1ButtonEl);
+                userSelection.push(test1ButtonEl);
+
+                userSelection = [];
+            });
+        });
 
     }
     startButtonEl.addEventListener("click", startTest);
+
+
 }
 initTest();
+
+
 
 // Task:
 
