@@ -1,25 +1,105 @@
 function initTest() {
     const startButtonEl = document.querySelector("button");
     const startContainerEl = document.getElementById("start-container");
-    const test1ContainerEl = document.getElementById("test1-container");
+    const allTheQuestionContainers = document.querySelectorAll(".question-container");
+
+    const feedbackCorrect = document.getElementById("feedback-correct-container");
+    const feedbackWrong = document.getElementById("feedback-wrong-container");
+
+    const results = document.getElementById("results-container");
+    const score = document.getElementById("score");
+    const submit = document.getElementById("submit")
+    const highScores = document.getElementById("high-score-container");
+    let initialsInput = "";
+    let inputBox = document.getElementById("userInitials");
+    const restartButton = document.getElementById("restart-test");
+
+    let currentQuestion = 0;
+    let numberCorrect = 0;
+
+    let topUserData = document.getElementById("top-user-data");
+
+    const resetHighScores = document.getElementById("reset-high-score");
+
+    submit.addEventListener("click", function() {
+
+        results.setAttribute("class", "container d-none");
+        highScores.setAttribute("class", "container");
+        console.log(inputBox.value);
+        initialsInput = inputBox.value;
+        // l value = r value, r value being pushed/stored into l value
+        // string = no need for any .
+        inputBox.value = "";
+        currentQuestion = 0;
+        topUserData.innerHTML = initialsInput + " " + numberCorrect;
+        numberCorrect = 0;
+    });
+
+    restartButton.addEventListener("click", function() {
+        highScores.setAttribute("class", "container d-none");
+        startContainerEl.setAttribute("class", "container");
+        console.log("FFF");
+    });
+
+    resetHighScores.addEventListener("click", function() {
+        topUserData.innerHTML = initialsInput + " " + numberCorrect;
+    })
 
     startButtonEl.setAttribute("class", "btn btn-success btn-lg");
 
     function startTest() {
         startContainerEl.setAttribute("class", "container d-none");
-        test1ContainerEl.setAttribute("class", "container");
+        var firstQuestion = allTheQuestionContainers[0];
+        firstQuestion.setAttribute("class", "question-container");
 
         let userSelection = [];
-        let answers = ["wrong", "correct"]
+        // let answers = [1, 2];
 
-        const test1ButtonEls = document.querySelectorAll(".test1-button-js");
+        const correct = document.querySelectorAll(".correct")
+
+        const test1ButtonEls = document.querySelectorAll(".test-button-js");
         // be sure to eventually clear the array
-        test1ButtonEls.forEach(function(test1ButtonEl) {
+        test1ButtonEls.forEach(test1ButtonEl => {
             test1ButtonEl.addEventListener("click", function() {
-                console.log(test1ButtonEl);
-                userSelection.push(test1ButtonEl);
 
-                userSelection = [];
+                var classValue = test1ButtonEl.getAttribute("class");
+                if (classValue.includes("correct")) {
+
+                    numberCorrect++;
+
+                    feedbackCorrect.setAttribute("class", "container");
+                    feedbackWrong.setAttribute("class", "container d-none");
+
+                } else {
+                    feedbackCorrect.setAttribute("class", "container d-none");
+                    feedbackWrong.setAttribute("class", "container");
+
+                }
+
+                function myTimeOutFunction() {
+                    feedbackCorrect.setAttribute("class", "container d-none");
+                    feedbackWrong.setAttribute("class", "container d-none");
+                }
+                setTimeout(myTimeOutFunction, 500);
+
+                let currQuestionContainer = allTheQuestionContainers[currentQuestion];
+
+                currQuestionContainer.setAttribute("class", "question-container d-none");
+
+                currentQuestion++;
+                const indexOfLastQuestContainer = allTheQuestionContainers.length - 1;
+                if (currentQuestion <= indexOfLastQuestContainer) {
+                    // console.log("current Question: " + currentQuestion);
+                    currQuestionContainer = allTheQuestionContainers[currentQuestion];
+                    currQuestionContainer.setAttribute("class", "question-container");
+
+                    // console.log(currQuestionContainer);
+                } else {
+                    // console.log("testtesttest");
+                    // console.log(document.getElementById("results-container"));
+                    results.setAttribute("class", "container");
+                    score.innerHTML = numberCorrect;
+                }
             });
         });
 
@@ -54,4 +134,4 @@ initTest();
 
 // 9. At end user can click "Clear Highscores" button.
 
-// 10. At end user can click on "Go Back to restart test"
+// 10. At end user can click on "Go Back to restart test";

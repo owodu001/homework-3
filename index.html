@@ -22,51 +22,57 @@
             </div>
         </div>
     </div>
-    <div id="test1-container" class="container d-none">
+    <div id="test1-container" class="question-container d-none">
+        <div class="row align-items-center justify-content-center">
+            <p>question 1</p>
+        </div>
         <div class="row mt-5">
-            <div class="wrong test1-button-js col d-flex align-items-center justify-content-center">
+            <div class="wrong test-button-js col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">wrong</button>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="correct test1-button-js col d-flex align-items-center justify-content-center">
+            <div class="correct test-button-js col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">correct</button>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="wrong test1-button-js col d-flex align-items-center justify-content-center">
+            <div class="wrong test-button-js col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">wrong</button>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="wrong test1-button-js col d-flex align-items-center justify-content-center">
+            <div class="wrong test-button-js col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">wrong</button>
             </div>
         </div>
     </div>
-    <div id="test2-container" class="container d-none">
+    <div id="test2-container" class="question-container d-none">
+        <div class="row align-items-center justify-content-center">
+            <p>question 2</p>
+        </div>
         <div class="row mt-5">
-            <div class="correct col d-flex align-items-center justify-content-center">
+            <div class="test-button-js correct col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">correct2</button>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="wrong col d-flex align-items-center justify-content-center">
+            <div class="test-button-js wrong col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">wrong2</button>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="wrong col d-flex align-items-center justify-content-center">
+            <div class="test-button-js wrong col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">wrong2</button>
             </div>
         </div>
         <div class="row mt-5">
-            <div class="wrong col d-flex align-items-center justify-content-center">
+            <div class="test-button-js wrong col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">wrong2</button>
             </div>
         </div>
     </div>
-    <div id="test3-container" class="container d-none">
+    <!-- <div id="test3-container" class="container d-none">
         <div class="row mt-5">
             <div class="col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">1</button>
@@ -173,6 +179,43 @@
         <div class="row mt-5">
             <div class="col d-flex align-items-center justify-content-center">
                 <button class="btn btn-primary btn-lg tiles-js">c</button>
+            </div>
+        </div>
+    </div> -->
+    <div id="feedback-correct-container" class="container d-none">
+        <div class="row mt-5">
+            <div class="col d-flex align-items-center justify-content-center">
+                <p>Correct</p>
+            </div>
+        </div>
+    </div>
+    <div id="feedback-wrong-container" class="container d-none">
+        <div class="row mt-5">
+            <div class="col d-flex align-items-center justify-content-center">
+                <p>Wrong</p>
+            </div>
+        </div>
+    </div>
+    <div id="results-container" class="container d-none">
+        <div class="row mt-5">
+            <div class="col d-flex align-items-center justify-content-center">
+                All done Your results are&nbsp;
+
+                <div id="score"></div>
+                <input id="userInitials"> <button id="submit">submit</button>
+            </div>
+        </div>
+    </div>
+    <div id="high-score-container" class="container d-none">
+        <div class="row mt-5">
+            <div class="col d-flex align-items-center justify-content-center">
+                High Scores&nbsp;
+                <div>Display initials</div>
+                <div id="top-user-data"></div>
+
+                <button id="reset-high-score">Reset High Score</button>
+                <button id="restart-test">restart</button>
+
             </div>
         </div>
     </div>
