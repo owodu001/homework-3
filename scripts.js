@@ -49,7 +49,7 @@ function initTest() {
 
     function startTest() {
         startContainerEl.setAttribute("class", "container d-none");
-        var firstQuestion = allTheQuestionContainers[0];
+        let firstQuestion = allTheQuestionContainers[0];
         firstQuestion.setAttribute("class", "question-container");
 
         let userSelection = [];
@@ -57,12 +57,12 @@ function initTest() {
 
         const correct = document.querySelectorAll(".correct")
 
-        const test1ButtonEls = document.querySelectorAll(".test-button-js");
+        const testButtonEls = document.querySelectorAll(".test-button-js");
         // be sure to eventually clear the array
-        test1ButtonEls.forEach(test1ButtonEl => {
-            test1ButtonEl.addEventListener("click", function() {
+        testButtonEls.forEach(testButtonEl => {
+            testButtonEl.addEventListener("click", function() {
 
-                var classValue = test1ButtonEl.getAttribute("class");
+                let classValue = testButtonEl.getAttribute("class");
                 if (classValue.includes("correct")) {
 
                     numberCorrect++;
