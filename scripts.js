@@ -52,6 +52,28 @@ function initTest() {
         let firstQuestion = allTheQuestionContainers[0];
         firstQuestion.setAttribute("class", "question-container");
 
+        function startTimer() {
+            let timerEl = document.querySelector(".timer");
+            time = 60;
+            let myInterval = setInterval(function() {
+                time = time - 1;
+                let minutes = Math.floor(time / 60) % 60;
+                let seconds = time % 60;
+                if (minutes < 10) {
+                    minutes = 0 + minutes;
+                }
+                if (seconds < 10) {
+                    seconds = 0 + seconds;
+                }
+                timerEl.innerText = minutes + ":" + seconds;
+                if (time <= 0) {
+                    clearInterval(myInterval);
+                    finishGame();
+                }
+            }, 1000)
+        }
+        startTimer()
+
         let userSelection = [];
         // let answers = [1, 2];
 
@@ -59,7 +81,7 @@ function initTest() {
 
         const testButtonEls = document.querySelectorAll(".test-button-js");
         // be sure to eventually clear the array
-        testButtonEls.forEach(testButtonEl => {
+        testButtonEls.forEach(function run(testButtonEl) {
             testButtonEl.addEventListener("click", function() {
 
                 let classValue = testButtonEl.getAttribute("class");
@@ -92,6 +114,8 @@ function initTest() {
                     // console.log("current Question: " + currentQuestion);
                     currQuestionContainer = allTheQuestionContainers[currentQuestion];
                     currQuestionContainer.setAttribute("class", "question-container");
+
+
 
                     // console.log(currQuestionContainer);
                 } else {
