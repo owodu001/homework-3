@@ -1,6 +1,7 @@
 # homework-3
 
 Live link here: 
+https://owodu001.github.io/homework-3/
 
 Name
 JavaScript Quiz
@@ -25,4 +26,4 @@ Support
 Please contact michelle.owodunni@gmail.com for support
 
 License
-[MIT](https://choosealicense.com/licenses/mit/)
+Licensed under the MIT license.
