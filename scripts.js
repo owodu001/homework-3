@@ -14,6 +14,7 @@ function initTest() {
     let inputBox = document.getElementById("userInitials");
     const restartButton = document.getElementById("restart-test");
 
+
     let currentQuestion = 0;
     let numberCorrect = 0;
 
@@ -113,6 +114,7 @@ function initTest() {
 
                 currentQuestion++;
                 const indexOfLastQuestContainer = allTheQuestionContainers.length - 1;
+
                 if (currentQuestion <= indexOfLastQuestContainer) {
                     // console.log("current Question: " + currentQuestion);
                     currQuestionContainer = allTheQuestionContainers[currentQuestion];
@@ -130,12 +132,17 @@ function initTest() {
                     // console.log(document.getElementById("results-container"));
                     results.setAttribute("class", "container");
                     score.innerHTML = numberCorrect;
-                    localStorage.setItem('highscores', highScores);
                     timerEl.innerText = null;
                 }
+
             });
         });
-
+        let savedValue = getItem("highscores");
+        let highScores = 0;
+        if (savedValue) {
+            highScores = savedValue;
+        }
+        localStorage.setItem('highscores', highScores);
     }
     startButtonEl.addEventListener("click", startTest);
 
