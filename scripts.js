@@ -130,6 +130,7 @@ function initTest() {
                     // console.log(document.getElementById("results-container"));
                     results.setAttribute("class", "container");
                     score.innerHTML = numberCorrect;
+                    localStorage.setItem('highscores', highScores);
                     timerEl.innerText = null;
                 }
             });
