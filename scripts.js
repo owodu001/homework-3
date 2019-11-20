@@ -28,7 +28,7 @@ function initTest() {
         console.log(inputBox.value);
         initialsInput = inputBox.value;
         // l value = r value, r value being pushed/stored into l value
-        // string = no need for any .
+
         inputBox.value = "";
         currentQuestion = 0;
         topUserData.innerHTML = initialsInput + " " + numberCorrect;
@@ -53,6 +53,8 @@ function initTest() {
         firstQuestion.setAttribute("class", "question-container");
 
         function startTimer() {
+
+
             let timerEl = document.querySelector(".timer");
             time = 60;
             let myInterval = setInterval(function() {
@@ -68,7 +70,6 @@ function initTest() {
                 timerEl.innerText = minutes + ":" + seconds;
                 if (time <= 0) {
                     clearInterval(myInterval);
-                    finishGame();
                 }
             }, 1000)
         }
@@ -91,6 +92,8 @@ function initTest() {
 
                     feedbackCorrect.setAttribute("class", "container");
                     feedbackWrong.setAttribute("class", "container d-none");
+
+
 
                 } else {
                     feedbackCorrect.setAttribute("class", "container d-none");
@@ -115,7 +118,11 @@ function initTest() {
                     currQuestionContainer = allTheQuestionContainers[currentQuestion];
                     currQuestionContainer.setAttribute("class", "question-container");
 
-
+                    startTimer()
+                    if (myInterval) {
+                        clearInterval(myInterval);
+                        myInterval = null;
+                    }
 
                     // console.log(currQuestionContainer);
                 } else {
@@ -123,6 +130,7 @@ function initTest() {
                     // console.log(document.getElementById("results-container"));
                     results.setAttribute("class", "container");
                     score.innerHTML = numberCorrect;
+                    timerEl.innerText = null;
                 }
             });
         });
